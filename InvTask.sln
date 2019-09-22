@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvTask.TodoApp.MvcWebUI", "InvTask.TodoApp.MvcWebUI\InvTask.TodoApp.MvcWebUI.csproj", "{48745BFD-14E1-4F6A-940B-97ED4F2DBDCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvTask.TodoApp.MvcWebUI", "InvTask.TodoApp.MvcWebUI\InvTask.TodoApp.MvcWebUI.csproj", "{48745BFD-14E1-4F6A-940B-97ED4F2DBDCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvTask.Core", "InvTask.Core\InvTask.Core.csproj", "{FF3823D3-D885-45B4-B330-FF92380A8F3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvTask.Core", "InvTask.Core\InvTask.Core.csproj", "{FF3823D3-D885-45B4-B330-FF92380A8F3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvTask.TodoApp.Business", "InvTask.TodoApp.Business\InvTask.TodoApp.Business.csproj", "{3EA695B2-7243-48B1-B1DC-F521776F6C26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvTask.TodoApp.Business", "InvTask.TodoApp.Business\InvTask.TodoApp.Business.csproj", "{3EA695B2-7243-48B1-B1DC-F521776F6C26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvTask.TodoApp.DataAccess", "InvTask.TodoApp.DataAccess\InvTask.TodoApp.DataAccess.csproj", "{1177E2BE-3367-4C95-8A03-74954C7A42C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvTask.TodoApp.DataAccess", "InvTask.TodoApp.DataAccess\InvTask.TodoApp.DataAccess.csproj", "{1177E2BE-3367-4C95-8A03-74954C7A42C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvTask.TodoApp.Entities", "InvTask.TodoApp.Entities\InvTask.TodoApp.Entities.csproj", "{58628ED4-A7E1-4D3A-BEBA-996F9B50CD63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvTask.TodoApp.Entities", "InvTask.TodoApp.Entities\InvTask.TodoApp.Entities.csproj", "{58628ED4-A7E1-4D3A-BEBA-996F9B50CD63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

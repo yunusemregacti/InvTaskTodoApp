@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Manage your todo list";
+
 }
 
 <div class="panel panel-default todo-panel">
@@ -71,3 +72,24 @@
 
 
 </div>
+
+<script>
+
+    var model = @Html.Raw(Json.Serialize(Model.DueAt));
+    (function () {
+        self.setInterval(RefreshData, 60000);
+    })();
+
+    function RefreshData() {
+        $.get("/ToDo/Index", function () {
+            console.log("Get Data");
+        });
+
+        if (model.length > 0) {
+            model.forEach((value) => {
+                alert("Item : '"+value.text+"'"+" is going to be over today. Please mark as done or update the item.");
+            });
+        }
+    }
+</script>
+

@@ -25,8 +25,10 @@ namespace InvTask.TodoApp.MvcWebUI.Controllers
 
             var model = new ToDoViewModel()
             {
-                Items = todoItems
+                Items = todoItems,
+                DueAt = todoItems.Where(i=>i.DueAtDateTime.DayOfYear == DateTime.Now.DayOfYear).ToList()
             };
+
 
             return View(model);
         }
