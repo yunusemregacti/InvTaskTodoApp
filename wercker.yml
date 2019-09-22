@@ -18,7 +18,46 @@ build:
         code: |
           dotnet publish -o $WERCKER_OUTPUT_DIR/app/publish
           cp docker_entrypoint.sh $WERCKER_OUTPUT_DIR/app
-
+    - script:
+        name: core-restore
+        cwd: InvTask.Core
+        code: |
+           dotnet restore
+    - script:
+        name: core-build
+        cwd: InvTask.Core
+        code: |
+          dotnet build
+    - script:
+        name: business-restore
+        cwd: InvTask.TodoApp.Business
+        code: |
+           dotnet restore
+    - script:
+        name: business-build
+        cwd: InvTask.TodoApp.Business
+        code: |
+          dotnet build
+    - script:
+        name: data-restore
+        cwd: InvTask.TodoApp.DataAccess
+        code: |
+           dotnet restore
+    - script:
+        name: data-build
+        cwd: InvTask.TodoApp.DataAccess
+        code: |
+          dotnet build
+    - script:
+        name: entities-restore
+        cwd: InvTask.TodoApp.Entities
+        code: |
+           dotnet restore
+    - script:
+        name: entities-build
+        cwd: InvTask.TodoApp.Entities
+        code: |
+          dotnet build
 deploy:
   steps:
     - internal/docker-push:
