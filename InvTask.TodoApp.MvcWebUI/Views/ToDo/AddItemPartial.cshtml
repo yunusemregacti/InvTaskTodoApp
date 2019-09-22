@@ -1,0 +1,16 @@
+﻿@model TodoItem
+
+    <form asp-action="AddItem" autocomplete="off" method="POST">
+        <label asp-for="Text">Add a new item:</label>
+        <input asp-for="Text" id="Text" class="form-control">
+        <label asp-for="DueAtDateTime">Add a date:</label>
+        <input type="datetime" min="@DateTime.Now" name="DueAtDateTime" id="addDatePicker" class="form-control mb-3" />
+
+        <button type="submit" class="mb-3">Add</button>
+
+        @*<button type="submit" id="sendButton" class="mb-3">Add</button>*@
+    </form>
+
+
+@*<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/notify.js"></script>*@

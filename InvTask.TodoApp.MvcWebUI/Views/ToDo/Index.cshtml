@@ -1,0 +1,73 @@
+﻿@using System.Linq
+@model ToDoViewModel;
+
+@{
+    ViewData["Title"] = "Manage your todo list";
+}
+
+<div class="panel panel-default todo-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>&#x2714;</td>
+                <td>Item</td>
+                <td>Due</td>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    <form asp-action="DeleteItem" method="POST">
+                        <input type="checkbox" class="done-checkbox">
+                        <input type="hidden" name="id" value="@item.Id">
+                    </form>
+                </td>
+                <td>@item.Text</td>
+                <td>@item.DueAtDateTime</td>
+                <td><button data-toggle="modal" data-target="#exampleModal" data-item-id="@item.Id" data-item-text="@item.Text" data-item-date="@item.DueAtDateTime"><i class="fa fa-edit"></i></button></td>
+            </tr>
+        }
+    </table>
+
+    <div class="panel-footer add-item-form">
+        @await Html.PartialAsync("AddItemPartial", new TodoItem())
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form asp-action="UpdateItem" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" name="Id" value="">
+                            <label>Add a new item:</label>
+                            <input type="text" name="Text" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Add a date:</label>
+                            <input type="datetime" min="@DateTime.Now" name="DueAtDateTime" id="updateDatePicker" class="form-control mb-3" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
