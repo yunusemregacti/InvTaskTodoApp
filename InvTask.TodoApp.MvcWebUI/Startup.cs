@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using InvTask.TodoApp.Business.Abstract;
 using InvTask.TodoApp.Business.Concrete;
 using InvTask.TodoApp.DataAccess.Abstract;
+using InvTask.TodoApp.DataAccess.Concrete.EntityFramework;
 using InvTask.TodoApp.DataAccess.Concrete.InMemoryDB;
 using InvTask.TodoApp.MvcWebUI.Models;
 using Microsoft.AspNetCore.Builder;
@@ -33,9 +34,14 @@ namespace InvTask.TodoApp.MvcWebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("InvTask"));
+            //services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("InvTask"));
+            //services.AddScoped<ITodoItemService, TodoItemManager>();
+            //services.AddScoped<ITodoItemDal, InMemoryTodoDal>();
+
+
+            services.AddDbContext<EfTodoContext>(options => options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=EFTodoDB;Trusted_Connection=True;"));
             services.AddScoped<ITodoItemService, TodoItemManager>();
-            services.AddScoped<ITodoItemDal, InMemoryTodoDal>();
+            services.AddScoped<ITodoItemDal, EfTodoDal>();
             services.AddMvc();
             services.AddSignalR();
         }
@@ -64,7 +70,7 @@ namespace InvTask.TodoApp.MvcWebUI
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<NotificationHub>("/notificationHub"); 
+                routes.MapHub<NotificationHub>("/notificationHub");
 
             });
 
